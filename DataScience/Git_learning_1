@@ -1,0 +1,189 @@
+## Git bash - 터미널 명령어 
+
+cd 엔터 : 다시 유저 디렉토리로 돌아옴
+
+cd Documents : 도큐먼츠경로로 가서 실행
+
+pwd : 현재 경로를 알려줌
+
+ls : 폴더에 뭐가 있는지 알려줌
+
+mkdir : 디렉토리 생성
+
+touch : 파일만들기 
+
+touch 파일명.txt 
+
+touch 파일명.py : 이런식으로
+
+내 경로 : C:\Users\J\Documents\dev
+내 실제 경로 : 사용자 > j > 문서 \dev 로 들어가면 됨
+
+mv users.db static : users.db파일을 static폴더로 옮기기
+
+cp users.db .. : users.db 파일을 복사하여 ..(상위디렉)에 카피함
+
+cd ../ : 상위 디렉토리로 가기
+
+mv server-copy.py static/client.py 
+: static/에 server-copy.py파일을 옮기되,
+이름을 client.py로 바꾼다
+
+mv client.py server.py : client.py를 server.py로 파일명을 바꾼다.
+
+cp server.py server-copy.py
+: server.py를 server-copy라는 이름으로 사본을 복사한다.
+
+rm users.db : 파일 지우기
+
+rm : 지우기
+rm *.py : py확장자인놈 전부 지우기
+rm *file*.* : file이란 글자가 있는놈 전부 지우기
+rm *file.* : file로 끝나는 놈 다 지우기
+
+rm c?t.py : c와t사이에 한글자가 있으면 그파일은 모두 지워라
+
+cut.py cat.py 같은거 다지워짐
+
+디렉토리(폴더)는 내부 파일이 있으면 못지움. 
+rm -r static/ : 해당 디렉에 파일들 다 지우고 그 해당 디렉토리 지우기
+
+
+
+## 노말모드 명령어
+:w 중간저장
+:wq 저장 후 나가기
+:q 나가기
+:q! 저장안하고 (초기상태에서) 나가기
+cat 파일명 : 파일의 내용 확인하기
+
+
+## 명령어 mode
+- normal mode : 명령수행. Press 'esc' on any mode
+- insert mode : 수정. Press 'i' on normal mode
+- visual mode : 블록설정. Press 'v' on normal mode
+- command mode : 커맨드입력. Press ':' on normal mode
+
+
+## Code block
+
+어떤 문장안에서 특정 부분을 highlight하고싶다면 `$ pip install jupyter`처럼 backquote사용
+backquote는 물결표시에있는거
+코드의 블록으로 설정하고싶으면
+```python
+def say_hello(name:str) -> str:
+        return"hello"
+```
+
+## git hub
+깃허브에서 저장소를 만들고 그걸 내 pc로 복제해온다.
+
+## git 도구 개념
+- 최고의 도구
+- 팀원끼리 소스코드 주고받기 없이 동시작업이 가능해져 생산성 증가
+- 수정내용은 commit으로 관리하여 중간저장하여 원하는 시점으로  체크아웃가능(돌아가기)
+    (게임에서 체크포인트 기능)
+- 새로운 기능추가는 가상의 branch로 개발하여 편안한 실험가능, 성공적 개발이되면
+현실과 merge하여 반영
+- 인터넷 연결되지 않아도 개발가능
+
+## git GUI Clients
+- git GUI
+- sourcetree
+- kraken
+- 우리는 CLI로 사용
+    왜 ?
+- CLI커맨드로 git을 사용할 줄 알면 GUI도구가 제공하는 기능에 대한 이해가 빠르다.
+- Source code를 Cloud Platform에서 사용할 경우, CLI커맨드로 버전관리를 수행해야 한다.
+- 확인용도로 GUI 클라이언트들을 참고하는 것이 좋다
+어차피 CLI커맨드를 사용할 줄 알아야 데싸 실무가능
+
+## git objects(내부)
+- Blob : 우리가 작성한 변경사항 - 파일 하나의 내용에 대한 정보
+- Tree : Blob이나 subtree의 메타데이터(디렉토리위치, 속성, 이름 등)
+- Commit : Tree + Blob : 커밋순간의 스냅샷
+
+## git 과 git hub는 다르다 
+- 깃 : 도구, 버전관리를 위한 도구
+- 깃허브 : 서비스, 깃을 활용한 클라우드 저장소서비스(마이크로소프트가 인수함)
+
+
+## 환경세팅
+git config --list (세팅목록 확인용)
+git config --global user.name "seokjunHwang"
+git config --global user.email "ada0004@naver.com"
+git config --global core.editor "vim"
+git config --global core.pager "cat"
+
+## 프로젝트 시작
+ : 수정/입력 후 -> add, commit, push 항상 세트로 해야함
+
+새로운 원격저장소를 만들고 그 클론을받아서
+그 복제본에다가 일을하여 원본에 영향을 줌.
+
+1. 깃허브에서repo생성
+깃허브에서 코드 > 주소복사 후
+
+2. 깃배쉬에서 클론생성
+git clone https://github.com/seokjunHwang/seokjunHwang.git
+
+3. cd seokjunHwang/ 하여 들어감
+4. ls+엔터 : 깃허브에있는 README.md가 있는지 확인
+5. vi README.md : vim커맨드 자주사용
+작업하기
+:wq
+6. git status : 저장소의 상태를 알려줌
+- README.md 파일이 수정되었다는걸 알려주고있음.
+- 수시로 하기
+
+7. 이제 변경사항을 스테이지로 올려준다.
+( 변경사항이 있고 그것을 버전으로 만들 준비를 해주는 것.)
+git add README.md
+
+8. 올라온녀석을 커밋을 해준다.
+( 버전 생성 준비 끝!)
+( 생성한 버전이 어떤내용을 갖고서 버전업했는지 써줘야함)
+git commit
+인서트 누르고 dosc: 제목
+( 문서작업했으므로 dosc : 작업내용)
+( 엔터두번을 눌러야 줄바꿈 )
+내용까지 적기(내용없으면 안적어도됨)
+:wq
+
+9. git status쳐보고 modified 없어지면 커밋완성
+
+10. 푸쉬하기 (로컬과 리모트-깃허브 연결)
+git push origin main
+origin은 저장소 -> 로그인창뜸 -> 토큰으로 로그인하려면?
+
+11. 토큰생성?
+깃허브 settings > developer sttings > personal tokens > token(classic)
+generate new token(classic) > note(이름),만기일(no~),체크박스전체선택(개인용)
+> 복사
+
+12. 글 수정해보기
+vi README.md
+
+- 노멀모드에서 커서가 있는 줄을 dd하면 한줄씩지워짐
+- d10j 하면 아래로 10줄을 한번에 지움
+- 돌아가기하고싶으면 u누르면됨
+- 노멀모드에서 o누르면 커서라인의 아래에 한라인이 추가되고 자동인설트모드
+
+13. 다시 스테이지올리고 -> 커밋 (vim으로 들어가면 docs:뭘했는지 영어로적음)
+
+14. 또 다른작업 같은과정으로 언어목록 추가하기 수행
+by 2 commits라고 되어있음 (2번의 작업을 커밋해놨음)
+
+15. 두 개 커밋을 푸쉬하기
+(이때만 인터넷 연결되어있으면 됨)
+git push origin main
+
+
+## Q & A 
+gitbash를 이용하지 않고 github 페이지 자체에서 readme 파일을 수정하고
+commit changes할 경우에도 gitbash에서 추가적인 작업이 필요한가요?
+
+
+네! 리모트(깃허브자체)에서 변경한 것은 로컬로 넘어오지않는다.
+수정은 항상 로컬에서 한다!
+깃이 자유로워질때 다이렉트(리모트)로 작업하세요.

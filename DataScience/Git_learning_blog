@@ -1,0 +1,37 @@
+1. new respository
+레포명 seokjunHwang.github.io
+퍼블릭, add a readme file체크
+license - mit로 선택
+
+2. 로컬에서 clone생성 후 index.html만들어서
+직접 블로그 만듦
+
+3. gitignore 사용 
+중요정보들은 안보이게 함
+vi gitignore에서 규칙들을 설정가능
+
+hidden/**
+keyfile.*
+*.java
+*.php
+
+이렇게 써주면 
+hidden/**   :   히든디렉 안의 파일들은 무시함
+keyfile.*      :  keyfile이름을 가진 모든 파일은 무시함(확장자관계없이)
+*.java         :.java확장자인 얘들은 모두 무시함
+*.php         : .php확장자인 얘들은 모두 무시함
+
+4. 
+ https://www.toptal.com/developers/gitignore 사이트 들어가면
+- 우리 팀원들이 어떤 환경과 어떤 언어, 프로그램들을 사용하는지 하나씩 추가하고 생성
+- 전부 복붙 후
+- vi .gitignore해서 복붙
+
+5. 중간저장 = commit 
+conf : Create .gitignore
+
+
+6. vim으로 HTML작업하기
+7. add commit push
+8. 주소에 seokjunhwang.github.io 쳐보면 내블로그나옴
+
